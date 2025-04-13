@@ -8,7 +8,15 @@
 </head>
 <body class="bg-dark">
     <div class="d-flex justify-content-center align-items-center vh-100">
-        <form class="card col-12 col-md-5 col-lg-4" id="frmLogin">
+        <form class="card col-12 col md-5 col-lg-4" id="frmLandingPage">
+            <div class="card-body">
+                <h1 class="text-center mb-0 text-primary">Swollenhippo Feedback</h1>
+                <h3 class="text-center mb-4">Please Sign in or register</h3>
+                <button class="btn btn-primary col-12 mt-2" type="button" id="btnSwapLandingToLogin">Log In</button>
+                <button class ="btn btn-link col-12 mt-0" type="button" id="btnSwapLandingToRegister">Need an account? Register here</button>
+            </div>
+        </form>
+        <form class="card col-12 col-md-5 col-lg-4" id="frmLogin"style='display:none;' >  
             <div class="card-body">
                 <h1 class="text-center mb-0 text-primary">Swollenhippo Feedback Login</h1>
                 <h3 class="text-center mb-4">Please enter your login information</h3>
@@ -34,6 +42,32 @@
                         <button class ="btn btn-link col-12 mt-0" type="button" id="btnSwapRegister">Already have an account? log in here</button>
                     </div>
                 </form>
+            </div>
+        </form>
+        <form class="card col-12 col-md-5 col-lg-4" id="frmStudentView" style="display:none;">
+            <div class="card-body">
+                <h1 class="text-center mb-1">Student View</h1>
+                <form class="card col-12 col-md6 offset-mb-3 col-lg-4 offset-lg-4">
+                    <div class="card-body">
+                        <button class="btn-primary col-12 mt-2" type="button" id="btnStudentReviewView" aria-label="Pending reviews">View Pending Reviews</button>
+                        <button class="btn-primary col-12 mt-2" type="button" id="btnStudentViewFeedback" aria-label="Review Feedback">View Given Feedback</button>
+                        <button class="btn-primary col-12 mt-2" type="button" id="btnJoinCourse" aria-label="Join Course">Join Course</button>
+                        <button class="btn-link col-12 mt-2" type="button" id="btnSwapInstructorView" aria-label="Instructor View">Instructor? Swap Here</button>
+                    </div>
+            </div>
+        </form>
+        <form class="card col-12 col-md-5 col-lg-4" id="frmInstructorView" style="display:none;">
+            <div class="card-body">
+                <h1 class="text-center mb-1">Instructor View</h1>
+                <form class="card col-12 col-md6 offset-mb-3 col-lg-4 offset-lg-4">
+                    <div class="card-body">
+                        <button class="btn-primary col-12 mt-2" type="button" id="btnCreateCourse" aria-label="Pending reviews">Create a Course</button>
+                        <button class="btn-primary col-12 mt-2" type="button" id="btnInstructorViewFeedback" aria-label="Review Feedback">View Given Feedback and Scores</button>
+                        <button class="btn-primary col-12 mt-2" type="button" id="btnCreateFeedback" aria-label="Create Feedback Forum">Create Feedback Fourm</button>
+                        <button class="btn-link col-12 mt-2" type="button" id="btnSwapStudentView" aria-label="Student View">Student? Swap Here</button>
+                    </div>
+            </div>
+    </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
