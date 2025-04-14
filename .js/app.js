@@ -18,14 +18,62 @@ $('#btnSwapLandingToRegister').on('click',function(){
         $('#frmRegister').slideDown('fast')
     }   )
 })
-//reserving space ahead of time for the following
-//:transition from the login page to the dashboard, dashboard will feature
-// -- a student/teacher view
-// -- teacher view will have the ability to have classes, classes will split into groups that will be made up of clumps of student ids. teachers will be able to make some system to make random groups after a code is entered to be put into a group
-// studnet view will see any feedback requested. and fill out
-// teacher view can also view feedback results and share them anonmously with students. no ids will be shown, instead names
-// logic for these boards will not be fully fleshed out yet, as most of it will depend on stuff being returned from the backend and will depend on the format of the backend.
-
+$('#btnStudentViewFeedback').on('click',function(){
+    $('#frmStudentView').slideUp('slow',function(){ 
+        $('#frmStudentViewFeedback').slideDown('fast')
+    }   )
+})
+$('#btnSwapStudentFeedbackToHome').on('click',function(){
+    $('#frmStudentViewFeedback').slideUp('slow',function(){ 
+        $('#frmStudentView').slideDown('fast')
+    }   )
+})
+$('#btnJoinCourse').on('click',function(){
+    $('#frmStudentView').slideUp('slow',function(){ 
+        $('#frmStudentJoinCourse').slideDown('fast')
+    }   )
+})
+$('#btnJoinCourseToStudentView').on('click',function(){
+    $('#frmStudentJoinCourse').slideUp('slow',function(){ 
+        $('#frmStudentView').slideDown('fast')
+    }   )
+})
+$('#btnStudentReviewView').on('click',function(){
+    $('#frmStudentView').slideUp('slow',function(){
+        $('#frmStudentReviewView').slideDown('fast')
+    })
+})
+$('#btnStudentReviewToStudentView').on('click',function(){
+    $('#frmStudentReviewView').slideUp('slow',function(){
+        $('#frmStudentView').slideDown('fast')
+    })
+}) 
+$('#btnInstructorViewFeedback').on('click',function(){
+    $('#frmInstructorView').slideUp('slow',function(){
+        $('#frmInstructorViewFeedback').slideDown('fast')
+    })
+})
+$('#btnInstructorVeedbackToInstructorView').on('click',function(){
+    $('#frmInstructorViewFeedback').slideUp('slow',function(){
+        $('#frmInstructorView').slideDown('fast')
+    })
+})
+$('#btnCreateCourse').on('click',function(){
+    $('#frmInstructorView').slideUp('slow',function(){
+        $('#frmCreateCourse').slideDown('fast')
+    })
+})
+$('#btnCreateCourseToInstructorView').on('click',function(){
+    $('#frmCreateCourse').slideUp('slow',function(){
+        $('#frmInstructorView').slideDown('fast')
+    })
+})
+$('#btnCreateFeedback').on('click',function(){
+    $('#frmInstructorView').slideUp('slow',function(){
+        $('#frmCreateFeedback').slideDown('fast')
+    })
+})
+()
 document.querySelector("#btnLogin").addEventListener("click",(e) => {
     //alert("Test");
     const regEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\.edu$/
@@ -116,3 +164,8 @@ document.querySelector('#btnRegistration').addEventListener('click',(e)=>{
     }
 
 })
+//add event listener here to remove the auth token and return them to the landng page after either log out button is pushed, will wait on backend logic to do this
+//logic needed for following:
+//- inserting into mentioned tables in the html files on swapping to that page
+//making forms
+//ping pong with backend for all of this
