@@ -73,7 +73,11 @@ $('#btnCreateFeedback').on('click',function(){
         $('#frmCreateFeedback').slideDown('fast')
     })
 })
-()
+$('#btnInstructorReviewGroupsToInstructorViewFeedback').on('click',function(){
+    $('#frmInstructorCourseFeedback').slideUp('slow',function(){
+        $('#frmInstructorViewFeedback').slideDown('fast')
+    })
+})
 document.querySelector("#btnLogin").addEventListener("click",(e) => {
     //alert("Test");
     const regEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\.edu$/
@@ -97,12 +101,16 @@ document.querySelector("#btnLogin").addEventListener("click",(e) => {
         blnError = true
         strMessage += '<p class="mb-0 mt-0">Password Cannot Be Blank</p>'
     }
+    //placeholder for auth, will ping right here then decide to send alert, for now this will ALWAYS go through if you follow the above
     if(!blnError){
         Swal.fire({
             title: "Login Successful",
             text: "proceeding",
             icon: "success"
         });
+        $('#frmLogin').slideUp('slow',function(){
+            $('#frmStudentView').slideDown('fast')
+        })
     }
     else{
         Swal.fire({
@@ -148,12 +156,16 @@ document.querySelector('#btnRegistration').addEventListener('click',(e)=>{
         blnError = true
         strMessage += "<p class ='mb-0 mt-0'>Teams name cannot be blank</p>"
     }
+    //auth will go here
     if(!blnError){
         Swal.fire({
             title: "Login Successful",
             text: "proceeding",
             icon: "success"
         });
+        $('#frmRegister').slideUp('slow',function(){
+            $('#frmStudentView').slideDown('fast')
+        })
     }
     else{
         Swal.fire({
@@ -169,3 +181,60 @@ document.querySelector('#btnRegistration').addEventListener('click',(e)=>{
 //- inserting into mentioned tables in the html files on swapping to that page
 //making forms
 //ping pong with backend for all of this
+document.querySelector('#btnJoinCourse').addEventListener('click',(e)=>{
+    let strCourseCode = document.querySelector('#txtCourseCode').value
+    let strMessage = ''
+    //code spot for verifying course code with a fetch
+
+    /*if valid
+        sweet alert for success
+        slide this page up and student view back down
+    else
+        sweel alert for invalid course code, stay on page
+
+    }*/
+})
+
+document.querySelector('#btnCreateCourse').addEventListener('click',(e)=>{
+    let strCourseName = document.querySelector('#txtCourseName').value
+    let intGroupSize = document.querySelector('#txtGroupSize').value
+
+    let blnError=false
+
+    if(strCourseName.length < 1){
+        blnError = true
+        strMessage += "<p class ='mb-0 mt-0'>Course name cannot be blank</p>"
+    }
+    if(intGroupSize < 1){
+        blnError = true
+        strMessage += "<p class ='mb-0 mt-0'>Group size must be greater then 1</p>"
+    }
+    // will do a post fetch, swal for success with the course code then a slide up and down to go back to instructor view
+    //only error that should come up is if something is blank, in which case a swal will come up and they will stay on the same page
+})
+
+document.querySelector('#btnCreateFeedback').addEventListener('click',(e)=>{
+    //fetch here to get data
+    //then 
+    //then
+    // will add in items to the list with the following format
+    //<li>
+    //  <span class='listName'> ${courseName} </span>
+    //  <button class='btn btn-primary btn-sm'>Select</button>
+    //</li>
+})
+jQuery(function($){
+    var fbEditor = document.getElementById('frmCreateFeedback');
+    var formbuilder = $(fbEditor).formBuilder();
+    let strFormData = formbuilder.formData
+
+    fbOptions={
+        OnSave:function(){
+            strFormData = formbuilder.formData
+            //here would be a fetch statement, however due to the fact i cant really do that yet for now it just moves it away
+            $('#frmCreateFeedback').slideUp('slow',function(){
+                $('#frmInstructorViewFeedback').slideDown('fast')
+            })
+        }
+    }
+})

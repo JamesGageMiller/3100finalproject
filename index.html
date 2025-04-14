@@ -79,6 +79,20 @@
                     <div class="card-body">
                         <!--This will be a table inserted into after the backend is made with feedback and the time it was wrote,(to my knowledge this is only text and who/when)and by who(will be designated anonyomus or not by instructor) -->
                         <h1 class="text-center mb-1">Provided feedback</h1>
+                        <thead>
+                            <tr>
+                                <th scope="col">Time</th>
+                                <th scope="col">Feedback</th>
+                                <th scope="col">By</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Time</td>
+                                <td>Feedback</td>
+                                <td>By</td>
+                            </tr>
+                        </tbody>
                         <button class ="btn btn-link col-12 mt-0" type="button" id="btnStudentFeedbackToHome">Return to student view</button>
                     </div>
                 </form>
@@ -110,12 +124,34 @@
         </form>
         <form class="card col-12 col-md-5 col-lg-4" id='frmInstructorViewFeedback' style="display:none;">
             <div class="card-body">
-                <h1 class="text-center mb-1">Provided feedback per group</h1>
+                <h1 class="text-center mb-1">Provided feedback per course</h1>
                 <form class="card col-12 col-md6 offset-mb-3 col-lg-4 offset-lg-4">
                     <div class="card-body">
-                        <!--This will be a table inserted into after the backend is made with feedback, im unsure what this will look like but will be brainstormed soon -->
+                        <!--This will be a table inserted into after the backend is made with each course, this will then be selected and another page with another table will pop out with members and pending feedback -->
                         <h1 class="text-center mb-1">Provided feedback</h1>
+                        <thead>
+                            <tr>
+                                <th scope="col">Course</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Course</td>
+                            </tr>
+                        </tbody>
                         <button class ="btn btn-link col-12 mt-0" type="button" id="btnInstructorFeedbackToInstructorView">Return to instructor view</button>
+                    </div>
+                </form>
+            </div>
+        </form>
+        <form class="card col-12 col-md-5 col-lg-4" id="frmInstructorCourseFeedback" style="display:none;">
+            <div class="card-body">
+                <h1 class="text-center mb-1">Provided feedback per group member</h1>
+                <form class="card col-12 col-md6 offset-mb-3 col-lg-4 offset-lg-4">
+                    <div class="card-body">
+                        <!-- table with every group in it for a course-->
+
+                        <button class ="btn btn-link col-12 mt-0" type="button" id="btnInstructorReviewGroupsToInstructorViewFeedback">Return to Previous Page</button>
                     </div>
                 </form>
             </div>
@@ -137,19 +173,28 @@
                 </form>
             </div>
         </form>
-        <!-- Incomplete while i figure out forms-->
+        <!-- This will dynamically get buttons to create feedback on, once pressed it will save -->
         <form class="card col-12 col-md-5 col-lg-4" id="frmCreateFeedback" style="display:none;">
             <div class="card-body">
                 <form class="card col-12 col-md6 offset-mb-3 col-lg-4 offset-lg-4">
                     <div class="card-body">
+                        <h1 class="text-center mb-1">Which class would you like to assign a new feedback form to?</h1>
+                        <ul id="listFeedbackCourses">
+
+                        </ul>
                     </div>
                 </form>
             </div>
+        </form>
+        <form class="card col-12 col-md-5 col-lg-4" id="frmCreateFeedbackForm" style="display:none;">
+        </form>
     </div>
+
 
 </body>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src=".js\app.js"></script>
+<script src="https://formbuilder.online/assets/js/form-render.min.js"></script>
 </html>
