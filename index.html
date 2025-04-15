@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder Name</title>
+    <title>SwollenHippo Peer Review</title>
     <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/pulse/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://formbuilder.online/assets/css/form-builder.min.css">
     <link rel="stylesheet" href="https://formbuilder.online/assets/css/form-render.min.css">
 </head>
 <body class="bg-dark">
-<!-- LANDING PAGE CONTENT -->
+<!--Landing Page-->
 <div id="landingPageContent">
-    <!-- Navigation -->
+    <!--Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -30,7 +30,7 @@
                         <a class="nav-link" href="#how-it-works">How It Works</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btnShowLogin" href="#" id="btnShowLogin">Login</a>
+                        <a class="nav-link btnShowLogin" href="#">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btnShowRegister" href="#">Register</a>
@@ -40,24 +40,93 @@
         </div>
     </nav>
 
-    <!--Main Title for landing page-->
-    <section class="py-5 bg primary text-white">
-        <div class ="container text-center">
+    <!--Top Card-->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
             <h1 class="display-4 mb-4">Feedback Made Simple</h1>
-            <p class="lead mb-5">A place for students and instructors to give and receive feedback</p>
+            <p class="lead mb-5">Platform for students and instructors to give and receive structured feedback</p>
             <a href="#" class="btn btn-light btn-lg px-5 btnShowRegister">Get Started</a>
         </div>
     </section>
 
-    <form class="card col-12 col-md-5 col-lg-4" id="frmLogin" style="display:none;">
+    <!--How It Works Section-->
+    <section class="py-5 bg-dark" id="how-it-works">
+        <div class="container">
+            <h2 class="text-center text-light mb-5">How It Works</h2>
+            <div class="row">
+                <div class="col-md-3 text-center mb-4">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="width: 60px; height: 60px;">
+                        <h3 class="m-0">1</h3>
+                    </div>
+                    <h4 class="text-light">Register</h4>
+                    <p class="text-light">Create your account with email and contact info</p>
+                </div>
+                <div class="col-md-3 text-center mb-4">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="width: 60px; height: 60px;">
+                        <h3 class="m-0">2</h3>
+                    </div>
+                    <h4 class="text-light">Join Course</h4>
+                    <p class="text-light">Enter your course code or create a new course</p>
+                </div>
+                <div class="col-md-3 text-center mb-4">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="width: 60px; height: 60px;">
+                        <h3 class="m-0">3</h3>
+                    </div>
+                    <h4 class="text-light">Give Feedback</h4>
+                    <p class="text-light">Complete feedback forms for your peers</p>
+                </div>
+                <div class="col-md-3 text-center mb-4">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex justify-content-center align-items-center mb-3" style="width: 60px; height: 60px;">
+                        <h3 class="m-0">4</h3>
+                    </div>
+                    <h4 class="text-light">View Results</h4>
+                    <p class="text-light">See feedback from others and track progress</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Bottom Card-->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card bg-primary text-white">
+                        <div class="card-body text-center p-5">
+                            <h2 class="card-title mb-3">Ready to Get Started?</h2>
+                            <p class="card-text mb-4">Join Swollenhippo Feedback today and transform how you give and receive peer feedback.</p>
+                            <button class="btn btn-light btn-lg btnShowRegister">Create Account</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!--Form Selection-->
+<div id="formsSection" class="d-flex justify-content-center align-items-center vh-100" style="display: none !important;">
+    <!-- Initial Landing Form -->
+    <form class="card col-12 col-md-5 col-lg-4" id="frmLandingPage" style="display: none;">
+        <div class="card-body">
+            <h1 class="text-center mb-0 text-primary">Swollenhippo Feedback</h1>
+            <h3 class="text-center mb-4">Please Sign in or register</h3>
+            <button class="btn btn-primary col-12 mt-2" type="button" id="btnSwapLandingToLogin">Log In</button>
+            <button class="btn btn-link col-12 mt-0" type="button" id="btnSwapLandingToRegister">Need an account? Register here</button>
+            <button class="btn btn-outline-secondary col-12 mt-3 btnBackToLanding" type="button">Back to Home</button>
+        </div>
+    </form>
+
+    <!--Login Form-->
+    <form class="card col-12 col-md-5 col-lg-4" id="frmLogin" style="display: none;">
         <div class="card-body">
             <h1 class="text-center mb-0 text-primary">Swollenhippo Feedback Login</h1>
             <h3 class="text-center mb-4">Please enter your login information</h3>
             <label for="txtLoginEmail" class="small mb-0">Email Address *</label>
             <input id="txtLoginEmail" class="form-control mt-1" type="email" placeholder="johndoe@gmail.com" aria-label="email input" required>
 
-            <label for="txtLoginpassword" class="small mb-0 mt-2">Password *</label>
-            <input id="txtLoginpassword" class="form-control mt-1" type="password" placeholder="password" aria-label="password input" required>
+            <label for="txtLoginPassword" class="small mb-0 mt-2">Password *</label>
+            <input id="txtLoginPassword" class="form-control mt-1" type="password" placeholder="password" aria-label="password input" required>
             <hr/>
             <button class="btn btn-primary col-12 mt-2" type="button" id="btnLogin">Log In</button>
             <button class="btn btn-link col-12 mt-0" type="button" id="btnSwapLogin">Need an account? Register here</button>
@@ -65,41 +134,43 @@
         </div>
     </form>
 
-        <form class="card col-12 col-md-5 col-lg-4" id="frmRegister" style="display:none;">
-            <div class="card-body">
-                <h2 class="text-center mb-1 text-primary">Swollenhippo Feedback Registration</h2>
-                <h3 class="text-center mb-4">Please complete the registration form</h3>
+    <!--Registration Form-->
+    <form class="card col-12 col-md-5 col-lg-4" id="frmRegister" style="display: none;">
+        <div class="card-body">
+            <h2 class="text-center mb-1 text-primary">Swollenhippo Feedback Registration</h2>
+            <h3 class="text-center mb-4">Please complete the registration form</h3>
 
-                <!-- Email -->
-                <label for="txtRegistrationEmail" class="small mb-0">Email Address *</label>
-                <input id="txtRegistrationEmail" class="form-control mt-1" type="email"
-                       placeholder="johndoe@gmail.com" aria-label="email input" required>
+            <!--Email-->
+            <label for="txtRegistrationEmail" class="small mb-0">Email Address *</label>
+            <input id="txtRegistrationEmail" class="form-control mt-1" type="email"
+                   placeholder="johndoe@gmail.com" aria-label="email input" required>
 
-                <!-- Password -->
-                <label for="txtRegistrationPassword" class="small mb-0 mt-2">Password *</label>
-                <input id="txtRegistrationPassword" class="form-control mt-1" type="password"
-                       placeholder="password" aria-label="password input" required>
+            <!--Password-->
+            <label for="txtRegistrationPassword" class="small mb-0 mt-2">Password *</label>
+            <input id="txtRegistrationPassword" class="form-control mt-1" type="password"
+                   placeholder="password" aria-label="password input" required>
 
-                <!-- Phone Number -->
-                <label for="txtPhoneNumber" class="small mb-0 mt-2">Phone Number</label>
-                <input id="txtPhoneNumber" class="form-control mt-1" type="tel"
-                       placeholder="1234567890" aria-label="phone number input">
+            <!--Phone Number-->
+            <label for="txtPhoneNumber" class="small mb-0 mt-2">Phone Number</label>
+            <input id="txtPhoneNumber" class="form-control mt-1" type="tel"
+                   placeholder="1234567890" aria-label="phone number input">
 
-                <!-- Discord -->
-                <label for="txtDiscord" class="small mb-0 mt-2">Discord Username</label>
-                <input id="txtDiscord" class="form-control mt-1" type="text"
-                       placeholder="@person1" aria-label="Discord Username Input">
+            <!--Discord-->
+            <label for="txtDiscord" class="small mb-0 mt-2">Discord Username</label>
+            <input id="txtDiscord" class="form-control mt-1" type="text"
+                   placeholder="@person1" aria-label="Discord Username Input">
 
-                <!-- Teams -->
-                <label for="txtTeamsName" class="small mb-0 mt-2">Teams Username</label>
-                <input id="txtTeamsName" class="form-control mt-1" type="text"
-                       placeholder="jgmiller44" aria-label="Teams Username Input">
+            <!--Teams-->
+            <label for="txtTeamsName" class="small mb-0 mt-2">Teams Username</label>
+            <input id="txtTeamsName" class="form-control mt-1" type="text"
+                   placeholder="jgmiller44" aria-label="Teams Username Input">
 
-                <hr/>
-                <button class="btn btn-primary col-12 mt-2" type="button" id="btnRegistration">Register Account</button>
-                <button class="btn btn-link col-12 mt-0" type="button" id="btnSwapRegister">Already have an account? Log in here</button>
-            </div>
-        </form>
+            <hr/>
+            <button class="btn btn-primary col-12 mt-2" type="button" id="btnRegistration">Register Account</button>
+            <button class="btn btn-link col-12 mt-0" type="button" id="btnSwapRegister">Already have an account? Log in here</button>
+            <button class="btn btn-outline-secondary col-12 mt-3 btnBackToLanding" type="button">Back to Home</button>
+        </div>
+    </form>
         <form class="card col-12 col-md-5 col-lg-4" id="frmStudentView" style="display:none;">
             <div class="card-body">
                 <h1 class="text-center mb-1">Student View</h1>
@@ -263,7 +334,6 @@
         // Initialize variables
         let formBuilder;
 
-        // ===== LANDING PAGE NAVIGATION =====
         // Show login form
         $(".btnShowLogin").on("click", function(e) {
             e.preventDefault();
