@@ -223,18 +223,57 @@ document.querySelector('#btnCreateFeedback').addEventListener('click',(e)=>{
     //  <button class='btn btn-primary btn-sm'>Select</button>
     //</li>
 })
-jQuery(function($){
-    var fbEditor = document.getElementById('frmCreateFeedback');
-    var formbuilder = $(fbEditor).formBuilder();
-    let strFormData = formbuilder.formData
+jQuery(function($) {
+    var fbTemplate = document.getElementById('frmCreateFeedbackForm')
+    var options= {
+        onSave:function(evt,formData){
+            let jsonFormData = JSON.stringify(formData)
+            //fetch here to save form data to backend, will find a way to add a courseid here
 
-    fbOptions={
-        OnSave:function(){
-            strFormData = formbuilder.formData
-            //here would be a fetch statement, however due to the fact i cant really do that yet for now it just moves it away
-            $('#frmCreateFeedback').slideUp('slow',function(){
-                $('#frmInstructorViewFeedback').slideDown('fast')
-            })
         }
     }
+    $(fbTemplate).formBuilder(options);
+})
+jQuery(function($){
+    var fbRenderTemplate = document.getElementById('frmStudentSubmitFeedback')
+    let fbRender='formdata'
+    //fetch right here for form data/
+
+    var formRenderInstance = $(fbRenderTemplate).formRender({fbRender})
+    document.querySelector('#btnSubmitFeedback').addEventListener('click',(e)=>{
+        let strResponses=fbRender.userData
+        let jsonUserData = JSON.parse(strResponses)
+        let arrUserResponses=[]
+        let arrValuesChecked = []
+        jsonUserData.forEach((item)=>{
+            if (item.type=='text'){
+                arrUserResponses.push(item.userData)
+            }
+            else if(item.type=='checkbox-group'){
+                arrValuesChecked = []
+                item.values.forEach((value)=>{
+                    if(value.selected == true){
+                        arrValuesChecked.push(value)
+                    }
+                })
+                arrUserResponses.push(arrValuesChecked)
+            }
+            else if(item.type=='select'){
+                item.values.forEach((value)=>{
+                    if(value.selected == true){
+                        arrUserResponses.push(value)
+                    }
+                })
+            }
+            else if(item.type=='radio-group'){
+                item.values.forEach((value)=>{
+                    if(value.selected == true){
+                        arrUserResponses.push(value)
+                    }
+                })
+            }
+        })
+        //fetch here to submit feedback
+        //add functionality to swap to a different page
+    })
 })
