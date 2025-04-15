@@ -225,13 +225,16 @@ document.querySelector('#btnCreateFeedback').addEventListener('click',(e)=>{
 })
 jQuery(function($) {
     var fbTemplate = document.getElementById('frmCreateFeedbackForm')
+    //this disables buttons not wanted for this form. and options not wanted, this also simply makes it easier to store the feedback as we arent writing logic for these types 
     var options= {
         onSave:function(evt,formData){
             let jsonFormData = JSON.stringify(formData)
             //fetch here to save form data to backend, will find a way to add a courseid here
-
-        }
+        },
+        disableActionButtons:['data'],
+        disableFields:['autocomplete','header','hidden','number','textarea','button','date','file','paragraph']
     }
+    //actually renders it
     $(fbTemplate).formBuilder(options);
 })
 jQuery(function($){
@@ -241,7 +244,7 @@ jQuery(function($){
 
     var formRenderInstance = $(fbRenderTemplate).formRender({fbRender})
     document.querySelector('#btnSubmitFeedback').addEventListener('click',(e)=>{
-        let jsonUserData = fbRender.userData
+        let jsonUserData = formRenderInstance.userData
         let arrUserResponses=[]
         let arrValuesChecked = []
         jsonUserData.forEach((item)=>{
@@ -252,7 +255,7 @@ jQuery(function($){
                 arrValuesChecked = []
                 item.values.forEach((value)=>{
                     if(value.selected == true){
-                        arrValuesChecked.push(value)
+                        arrValuesChecked.push(value.label)
                     }
                 })
                 arrUserResponses.push(arrValuesChecked)
@@ -260,19 +263,19 @@ jQuery(function($){
             else if(item.type=='select'){
                 item.values.forEach((value)=>{
                     if(value.selected == true){
-                        arrUserResponses.push(value)
+                        arrUserResponses.push(value.label)
                     }
                 })
             }
             else if(item.type=='radio-group'){
                 item.values.forEach((value)=>{
                     if(value.selected == true){
-                        arrUserResponses.push(value)
+                        arrUserResponses.push(value.label)
                     }
                 })
             }
         })
         //fetch here to submit feedback
-        //add functionality to swap to a different page
+        //add functionality to swap to a different page, most likley the instructor view or the previous page, with a swal for success
     })
 })
