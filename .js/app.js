@@ -241,8 +241,7 @@ jQuery(function($){
 
     var formRenderInstance = $(fbRenderTemplate).formRender({fbRender})
     document.querySelector('#btnSubmitFeedback').addEventListener('click',(e)=>{
-        let strResponses=fbRender.userData
-        let jsonUserData = JSON.parse(strResponses)
+        let jsonUserData = fbRender.userData
         let arrUserResponses=[]
         let arrValuesChecked = []
         jsonUserData.forEach((item)=>{
