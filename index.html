@@ -5,43 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Placeholder Name</title>
     <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/pulse/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://formbuilder.online/assets/css/form-builder.min.css">
+    <link rel="stylesheet" href="https://formbuilder.online/assets/css/form-render.min.css">
 </head>
 <body class="bg-dark">
-    <div class="d-flex justify-content-center align-items-center vh-100">
-        <form class="card col-12 col md-5 col-lg-4" id="frmLandingPage">
-            <div class="card-body">
-                <h1 class="text-center mb-0 text-primary">Swollenhippo Feedback</h1>
-                <h3 class="text-center mb-4">Please Sign in or register</h3>
-                <button class="btn btn-primary col-12 mt-2" type="button" id="btnSwapLandingToLogin">Log In</button>
-                <button class ="btn btn-link col-12 mt-0" type="button" id="btnSwapLandingToRegister">Need an account? Register here</button>
+<!-- LANDING PAGE CONTENT -->
+<div id="landingPageContent">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-comments"></i> Swollenhippo Feedback
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btnShowLogin" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btnShowRegister" href="#">Register</a>
+                    </li>
+                </ul>
             </div>
-        </form>
-        <form class="card col-12 col-md-5 col-lg-4" id="frmLogin"style='display:none;' >  
-            <div class="card-body">
-                <h1 class="text-center mb-0 text-primary">Swollenhippo Feedback Login</h1>
-                <h3 class="text-center mb-4">Please enter your login information</h3>
-                <input id = "txtLoginEmail" class="form-control" type="email" placeholder="johndoe@gmail.com" aria-label="email input">
-                <input id="txtLoginpassword" class="form-control mt-2" type="password" placeholder="password" aria-label="password input">
-                <hr/>
-                <button class="btn btn-primary col-12 mt-2" type="button" id="btnLogin">Log In</button>
-                <button class ="btn btn-link col-12 mt-0" type="button" id="btnSwapLogin">Need an account? Register here</button>
-            </div>
-        </form>
+        </div>
+    </nav>
+
+    <!--Main Title for landing page-->
+    <section class="py-5 bg primary text-white">
+        <div class ="container text-center">
+            <h1 class="display-4 mb-4">Feedback Made Simple</h1>
+            <p class="lead mb-5">A place for students and instructors to give and receive feedback</p>
+            <a href="#" class="btn btn-light btn-lg px-5 btnShowRegister">Get Started</a>
+        </div>
+    </section>
+
+    <form class="card col-12 col-md-5 col-lg-4" id="frmLogin" style="display: none;">
+        <div class="card-body">
+            <h1 class="text-center mb-0 text-primary">Swollenhippo Feedback Login</h1>
+            <h3 class="text-center mb-4">Please enter your login information</h3>
+            <label for="txtLoginEmail" class="small mb-0">Email Address *</label>
+            <input id="txtLoginEmail" class="form-control mt-1" type="email" placeholder="johndoe@gmail.com" aria-label="email input" required>
+
+            <label for="txtLoginpassword" class="small mb-0 mt-2">Password *</label>
+            <input id="txtLoginpassword" class="form-control mt-1" type="password" placeholder="password" aria-label="password input" required>
+            <hr/>
+            <button class="btn btn-primary col-12 mt-2" type="button" id="btnLogin">Log In</button>
+            <button class="btn btn-link col-12 mt-0" type="button" id="btnSwapLogin">Need an account? Register here</button>
+            <button class="btn btn-outline-secondary col-12 mt-3 btnBackToLanding" type="button">Back to Home</button>
+        </div>
+    </form>
+
         <form class="card col-12 col-md-5 col-lg-4" id="frmRegister" style="display:none;">
             <div class="card-body">
-                <h2 class="text-center mb-1"> Swollenhippo Feedback Registration</h2>
-                <form class="card col-12 col-md-6 offset-mb-3 col-lg-4 offset-lg-4">
-                    <div class="card-body">
-                        <h3 class="text-center mb-0">Feedback registration form</h3>
-                        <input id="txtRegistrationEmail" class="form-control mt-2" type="email" placeholder="johndoe@gmail.com" aria-label="email input">
-                        <input id="txtRegistrationPassword" class="form-control mt-2" type="password" placeholder="password" aria-label="password input">
-                        <input id="txtPhoneNumber" class="form-control mt-2" type="phone number" placeholder="1234567890" aria-label="phone number input">
-                        <input id="txtDiscord" class="form-control  mt-2" type="text" placeholder="@person1" aria-label="Discord Username Input">
-                        <input id="txtTeamsName" class="form-control mt-2" type="text" placeholder="jgmiller44" aria-label="Teams Username Input">
-                        <button class="btn btn-primary col-12 mt-2" type="button" id="btnRegistration">Log in and Register</button>
-                        <button class ="btn btn-link col-12 mt-0" type="button" id="btnSwapRegister">Already have an account? log in here</button>
-                    </div>
-                </form>
+                <h2 class="text-center mb-1 text-primary">Swollenhippo Feedback Registration</h2>
+                <h3 class="text-center mb-4">Please complete the registration form</h3>
+
+                <!-- Email -->
+                <label for="txtRegistrationEmail" class="small mb-0">Email Address *</label>
+                <input id="txtRegistrationEmail" class="form-control mt-1" type="email"
+                       placeholder="johndoe@gmail.com" aria-label="email input" required>
+
+                <!-- Password -->
+                <label for="txtRegistrationPassword" class="small mb-0 mt-2">Password *</label>
+                <input id="txtRegistrationPassword" class="form-control mt-1" type="password"
+                       placeholder="password" aria-label="password input" required>
+
+                <!-- Phone Number -->
+                <label for="txtPhoneNumber" class="small mb-0 mt-2">Phone Number</label>
+                <input id="txtPhoneNumber" class="form-control mt-1" type="tel"
+                       placeholder="1234567890" aria-label="phone number input">
+
+                <!-- Discord -->
+                <label for="txtDiscord" class="small mb-0 mt-2">Discord Username</label>
+                <input id="txtDiscord" class="form-control mt-1" type="text"
+                       placeholder="@person1" aria-label="Discord Username Input">
+
+                <!-- Teams -->
+                <label for="txtTeamsName" class="small mb-0 mt-2">Teams Username</label>
+                <input id="txtTeamsName" class="form-control mt-1" type="text"
+                       placeholder="jgmiller44" aria-label="Teams Username Input">
+
+                <hr/>
+                <button class="btn btn-primary col-12 mt-2" type="button" id="btnRegistration">Register Account</button>
+                <button class="btn btn-link col-12 mt-0" type="button" id="btnSwapRegister">Already have an account? Log in here</button>
             </div>
         </form>
         <form class="card col-12 col-md-5 col-lg-4" id="frmStudentView" style="display:none;">
@@ -197,4 +253,34 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src=".js\app.js"></script>
 <script src="https://formbuilder.online/assets/js/form-render.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Initialize variables
+        let formBuilder;
+
+        // ===== LANDING PAGE NAVIGATION =====
+        // Show login form
+        $(".btnShowLogin").on("click", function(e) {
+            e.preventDefault();
+            $("#landingPageContent").hide();
+            $("#formsSection").show();
+            $("#frmLogin").show();
+        });
+
+        // Show registration form
+        $(".btnShowRegister").on("click", function(e) {
+            e.preventDefault();
+            $("#landingPageContent").hide();
+            $("#formsSection").show();
+            $("#frmRegister").show();
+        });
+
+        // Return to landing page
+        $(".btnBackToLanding").on("click", function() {
+            $(".card").hide();
+            $("#formsSection").hide();
+            $("#landingPageContent").show();
+        });
+</script>
 </html>
