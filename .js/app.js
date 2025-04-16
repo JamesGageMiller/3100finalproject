@@ -23,18 +23,18 @@ $('#btnStudentViewFeedback').on('click',function(){
         $('#frmStudentViewFeedback').slideDown('fast')
     }   )
 })
-$('#btnSwapStudentFeedbackToHome').on('click',function(){
+$('#btnStudentFeedbackToHome').on('click',function(){
     $('#frmStudentViewFeedback').slideUp('slow',function(){ 
         $('#frmStudentView').slideDown('fast')
-    }   )
+    })
 })
 $('#btnJoinCourse').on('click',function(){
     $('#frmStudentView').slideUp('slow',function(){ 
-        $('#frmStudentJoinCourse').slideDown('fast')
+        $('#frmJoinCourse').slideDown('fast')
     }   )
 })
 $('#btnJoinCourseToStudentView').on('click',function(){
-    $('#frmStudentJoinCourse').slideUp('slow',function(){ 
+    $('#frmJoinCourse').slideUp('slow',function(){ 
         $('#frmStudentView').slideDown('fast')
     }   )
 })
@@ -78,18 +78,28 @@ $('#btnInstructorReviewGroupsToInstructorViewFeedback').on('click',function(){
         $('#frmInstructorViewFeedback').slideDown('fast')
     })
 })
+$('#btnSwapInstructorView').on('click',function(){
+    $('#frmStudentView').slideUp('slow',function(){
+        $('#frmInstructorView').slideDown('fast')
+    })
+})
+$('#btnSwapStudentView').on('click',function(){
+    $('#frmInstructorView').slideUp('slow',function(){
+        $('#frmStudentView').slideDown('fast')
+    })
+})
 document.querySelector("#btnLogin").addEventListener("click",(e) => {
     //alert("Test");
     const regEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\.edu$/
     let strUsername = document.querySelector("#txtLoginEmail").value
-    const strPassword = $('#txtLoginpassword').val()
+    let strPassword = document.querySelector('#txtLoginPassword').value
     strUsername = strUsername.toLowerCase()
     let blnError = false
     let strMessage = ''
 
     if(!regEmail.test(strUsername)){
         blnError = true
-        strMessage += '<p  class="mb-0 mt-0">Username must be an email address</p>'
+
     }
 
     // if(strUsername.trim().length < 6 || !strUsername.includes('@') || !strUsername.includes('.')){
@@ -99,7 +109,6 @@ document.querySelector("#btnLogin").addEventListener("click",(e) => {
     
     if(strPassword.length < 1){
         blnError = true
-        strMessage += '<p class="mb-0 mt-0">Password Cannot Be Blank</p>'
     }
     //placeholder for auth, will ping right here then decide to send alert, for now this will ALWAYS go through if you follow the above
     if(!blnError){
@@ -115,7 +124,7 @@ document.querySelector("#btnLogin").addEventListener("click",(e) => {
     else{
         Swal.fire({
             title: "Oh no, you have an error!",
-            html: strMessage,
+            html: '<p  class="mb-0 mt-0">Invalid Username and Password combination</p>',
             icon: "error"
         });
     }
@@ -181,7 +190,7 @@ document.querySelector('#btnRegistration').addEventListener('click',(e)=>{
 //- inserting into mentioned tables in the html files on swapping to that page
 //making forms
 //ping pong with backend for all of this
-document.querySelector('#btnJoinCourse').addEventListener('click',(e)=>{
+document.querySelector('#btnSubmitCourse').addEventListener('click',(e)=>{
     let strCourseCode = document.querySelector('#txtCourseCode').value
     let strMessage = ''
     //code spot for verifying course code with a fetch
@@ -223,6 +232,14 @@ document.querySelector('#btnCreateFeedback').addEventListener('click',(e)=>{
     //  <button class='btn btn-primary btn-sm'>Select</button>
     //</li>
 })
+document.querySelector('#btnInstructorReviewGroups').addEventListener('click',(e)=>{
+    //will add in items to the list with the following format
+    //<li>
+    //  <span class='listName'> ${courseName} </span>
+    //  <button class='btn btn-primary btn-sm'>Select</button>
+    //</li>
+})
+//both of the following functions will be inside of a query selector in the future. this is just here for now as it depends on buttons dynamically made after backend logic is made
 jQuery(function($) {
     var fbTemplate = document.getElementById('frmCreateFeedbackForm')
     //this disables buttons not wanted for this form. and options not wanted, this also simply makes it easier to store the feedback as we arent writing logic for these types 
@@ -278,4 +295,10 @@ jQuery(function($){
         //fetch here to submit feedback
         //add functionality to swap to a different page, most likley the instructor view or the previous page, with a swal for success
     })
+})
+
+document.querySelector('#btnStudentReviewView').addEventListener('click',(e)=>{
+    //will add in items to the table mentioned in frmStudentReviewView after im aware of everything in the database
+    //<li>
+    //</li>
 })
