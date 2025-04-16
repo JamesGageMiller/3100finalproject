@@ -356,6 +356,16 @@
             $("#formsSection").hide();
             $("#landingPageContent").show();
         });
+
+        $("#btnSwapInstructorView").on("click", function() {
+            $("#frmStudentView").hide();
+            $("#frmInstructorView").show();
+        });
+
+        $("#btnSwapStudentView").on("click", function() {
+            $("#frmInstructorView").hide();
+            $("#frmStudentView").show();
+        });
     })
 </script>
 </html>
