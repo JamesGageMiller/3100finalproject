@@ -88,6 +88,17 @@ $('#btnSwapStudentView').on('click',function(){
         $('#frmStudentView').slideDown('fast')
     })
 })
+$('#btnCreateFeedbackToInstructorView').on('click',function(){ 
+    $('#frmCreateFeedback').slideUp('slow',function(){
+        $('#frmInstructorView').slideDown('fast')
+    })
+}
+)
+$('#btnInstructorFeedbackToInstructorView').on('click',function(){
+    $('#frmInstructorViewFeedback').slideUp('slow',function(){
+        $('#frmInstructorView').slideDown('fast')
+    })
+})
 document.querySelector("#btnLogin").addEventListener("click",(e) => {
     //alert("Test");
     const regEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\.edu$/
