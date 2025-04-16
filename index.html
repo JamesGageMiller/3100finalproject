@@ -205,7 +205,6 @@
                 <form class="card col-12 col-md6 offset-mb-3 col-lg-4 offset-lg-4">
                     <div class="card-body">
                         <!--This will be a table inserted into after the backend is made with feedback and the time it was wrote,(to my knowledge this is only text and who/when)and by who(will be designated anonyomus or not by instructor) -->
-                        <h1 class="text-center mb-1">Provided feedback</h1>
                         <thead>
                             <tr>
                                 <th scope="col">Time</th>
@@ -231,7 +230,7 @@
                 <form class="card col-12 col-md6 offset-mb-3 col-lg-4 offset-lg-4">
                     <div class="card-body">
                         <input type="text" id="txtJoinCourse" class="form-control mt-2" placeholder="Course ID" aria-label="Course ID Input">
-                        <button class="btn btn-primary col-12 mt-2" type="button" id="btnJoinCourse">Submit Course Code</button>
+                        <button class="btn btn-primary col-12 mt-2" type="button" id="btnSubmitCourse">Submit Course Code</button>
                         <button class ="btn btn-link col-12 mt-0" type="button" id="btnJoinCourseToStudentView">Return to student view</button>
                     </div>
                 </form>
@@ -243,12 +242,12 @@
                 <form class="card col-12 col-md6 offset-mb-3 col-lg-4 offset-lg-4">
                     <div class="card-body">
                         <!--This will be a table with pending reviews inserted in, default will be that there is none which will be inserted after a query returns no new wanted feedback  -->
-                        <h1 class="text-center mb-1">Pending Reviews</h1>
                         <button class ="btn btn-link col-12 mt-0" type="button" id="btnStudentReviewToStudentView">Return to student view</button>
                     </div>
                 </form>
             </div>
         </form>
+
         <form id="frmStudentSubmitFeedback">
             <button type="button" id="get-user-data">Submit Form Data</button>
         </form>
@@ -285,6 +284,19 @@
                     </div>
                 </form>
             </div>
+        </form>
+        <form class="card col-12 col-md-5 col-lg-4" id="frmInstructorViewIndividualFeedback" style="display:none;">
+            <div class="card-body">
+                <h1 class="text-center mb-1">Provided feedback per group member</h1>
+                <form class="card col-12 col-md6 offset-mb-3 col-lg-4 offset-lg-4">
+                    <div class="card-body">
+                        <!-- another table, will show each group members statistics and feedback submitted about them, will be made once known backend logic on what is to be returned here-->
+
+                        <button class ="btn btn-link col-12 mt-0" type="button" id="btnInstructorIndividualFeedbackToInstructorCourseFeedback">Return to Previous Page</button>
+                    </div>
+                </form>
+            </div>
+
         </form>
         <!-- This frm is very incomplete due to its backend logic not being able to be made. here is what it will do-->
         <!--This will have a few inputs im making, on input it will check if an instructor with this id has made a course with this name, and all information is valid. -->
